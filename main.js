@@ -34,8 +34,6 @@ async function connect() {
       document.querySelector('#notification').innerHTML = 'Loading pandas'
 
       await fetchPandas()
-
-      document.querySelector('#notification').innerHTML = 'Select a panda to wrap'
     } catch (error) {
       console.error(error)
 
@@ -110,6 +108,8 @@ async function fetchPandas() {
     if(unwrapped_pandas.length) {
         // show form and add event listeners to form elements
         document.querySelector('#container-wrap').style.display = 'block'
+
+        document.querySelector('#notification').innerHTML = 'Select a panda to wrap'
 
         document.querySelector('#balance').onchange = previewPanda
         document.querySelector('#btn-approve').onclick = approvePanda
